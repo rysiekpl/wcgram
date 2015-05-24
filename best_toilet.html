@@ -3,14 +3,12 @@
 	<head>
 		<title>#WCGRAM</title>
 		<meta charset="utf-8" />
-    	<link href="css\bootstrap.min.css" rel="stylesheet" media="screen">
-		<script src="js\jquery-2.0.3.min.js"></script>
-		<script type="text/javascript" href="js\bootstrap.min.js"></script>
+    	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/toilet_data.js"></script>
 		<script type="text/javascript">
-			var json = "";
-			$.getJSON("toilets.json", function( data ) {
-		  		json = data;
-			});
+			var json = toiletData;
 			
 			var soap = true;
 			var toilet = true;
@@ -56,13 +54,19 @@
 				var design = "";
 				for(var index in objekti){
 					design += '<div class="panel panel-default"><div class="panel-heading">'+
-							objekti[index].name + 
+							'<a href="info.html?id='+index+'">'+objekti[index].name+'</a>'+ 
 							'<span class="pull-right"><span id="toiletTick"'+
 							' class="glyphicon glyphicon-star" ></span>&nbsp;<span></span>'
 							+ objekti[index].rating + '</span>'
 						+'</div><div class="panel-body">'+
-							objekti[index].name
-						+'</div></div>'
+							'<img width="200px" height="150px" src="'+objekti[index].link+'" style="float:left;" />'+
+							'<div style="float:left; margin-left:20px;">'+
+							'<div class="panel panel-default"><table class="table">'+
+							'<tr><th>Address:</th><td>'+objekti[index].address+
+							'</td></tr><tr><th>Soap:</th><td>'+(objekti[index].soap?"Yes":"No")+
+							'</td></tr><tr><th>Toilet paper:</th><td>'+(objekti[index].toilet?"Yes":"No")+
+							'</td></tr></table></div>'
+						+'</div></div></div>'
 				}
 				$('#content').html(design);
 			}
