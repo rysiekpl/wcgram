@@ -16,6 +16,9 @@
 			function sortDescending(){
 				objekti = json;
 				for(var i=0; i<objekti.length; i++){
+					objekti[i].id = i;
+				}
+				for(var i=0; i<objekti.length; i++){
 					for(var j=i+1; j<objekti.length; j++){
 						if(objekti[i].rating < objekti[j].rating){
 							var temp = objekti[i];
@@ -54,7 +57,7 @@
 				var design = "";
 				for(var index in objekti){
 					design += '<div class="panel panel-default"><div class="panel-heading">'+
-							'<a href="info.html?id='+index+'">'+objekti[index].name+'</a>'+ 
+							'<a href="info.html?id='+objekti[index].id+'">'+objekti[index].name+'</a>'+ 
 							'<span class="pull-right"><span id="toiletTick"'+
 							' class="glyphicon glyphicon-star" ></span>&nbsp;<span></span>'
 							+ objekti[index].rating + '</span>'
