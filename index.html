@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WC Gram</title>
+  <script src="js/jquery-2.0.3.min.js"></script>
+  <script src="js/ol.js"></script>
+  <link rel="stylesheet" href="css/ol.css" type="text/css">
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <script>
+  
+    var map = false;
+    var vectorLayer = false
+    var iconFeatures = [];
+    
+    $(function() {
+      
+      
+      var iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([21.4359624, 42.0108257], 'EPSG:4326',     
+        'EPSG:3857')),
+        name: 'O.У. Цветан Димов',
+        rating: 2.0,
+        soap: 1,
+        toilet: 0,
+        link: "http://a1on.mk/wordpress/wp-content/uploads/2012/09/4.jpg",
+        address:"adresa"
+      });
+
+      iconFeatures.push(iconFeature);
+
+      var vectorSource = new ol.source.Vector({
+        features: iconFeatures //add an array of features
+      });
+
+      var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.5, 0.5],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'fraction',
+          scale: 0.3,
+          opacity: 0.75,
+          src: 'img/toilet-by-victor-fedyuk-the-noun-project-cc-by-3.0.svg'
+        }))
+      });
+
+
+      vectorLayer = new ol.layer.Vector({
+        source: vectorSource,
+        style: iconStyle
+      });
+      
+      //
+      // Create map
+      //
+    
+      map = new ol.Map({
+        controls: ol.control.defaults({
+          attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+            collapsible: false
+          })
+        }),
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.MapQuest({
+              layer:"osm"
+            })
+          }),
+          vectorLayer
+        ],
+        view: new ol.View({
+          center: ol.proj.transform([21.43, 42.00], 'EPSG:4326', 'EPSG:3857'),
+          zoom: 13,
+          maxZoom: 17
+        })
+      });
+    });
+    
+  </script>
+</head>
+<body class="index">
+  <div id="map" class="map"></div>
+</body>
+</html>

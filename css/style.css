@@ -1,0 +1,13 @@
+body{
+  background-color: #EEE;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+  background: #BBB;
+}
+
+.info .map {
+  height: 200px;
+}
