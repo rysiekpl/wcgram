@@ -28,8 +28,12 @@
       });
     }
     
+    function colorFromRating(rating) {
+      return [512 / (rating + 0.1), 512 * (rating / 5), 0, 0.5]
+    }
+    
     function backgroundStyle(feature) {
-      var clr = [255 / (feature.get('rating') + 0.1), 255 * (feature.get('rating') / 5), 0, 0.5]
+      var clr = colorFromRating(feature.get('rating'))
       console.log('rating: ' + feature.get('rating') + ' :: clr: ' + clr)
       return new ol.style.Style({
         geometry: new ol.geom.Circle(feature.getGeometry().getCoordinates(), 300),
@@ -38,6 +42,7 @@
         }))
       });
     }
+    
     
     function hoveredIconStyle(feature) {
     
@@ -64,7 +69,7 @@
             color: '#000'
           }),
           stroke: new ol.style.Stroke({
-            color: [255 / (feature.get('rating') + 0.1), 255 * (feature.get('rating') / 5), 0, 0.5],
+            color: colorFromRating(feature.get('rating')),
             width: 2
           }),
           offsetY: 30
@@ -118,7 +123,8 @@
         view: new ol.View({
           center: ol.proj.transform([21.43, 42.00], 'EPSG:4326', 'EPSG:3857'),
           zoom: 13,
-          maxZoom: 19
+          maxZoom: 19,
+          minZoom: 13
         })
       });
       
