@@ -23,7 +23,8 @@
         soap: 1,
         toilet: 0,
         link: "http://a1on.mk/wordpress/wp-content/uploads/2012/09/4.jpg",
-        address:"adresa"
+        address:"adresa",
+        id:1
       });
 
       iconFeatures.push(iconFeature);
@@ -73,6 +74,25 @@
           zoom: 13,
           maxZoom: 17
         })
+      });
+      
+      // display popup on click
+      map.on('click', function(evt) {
+        var feature = map.forEachFeatureAtPixel(evt.pixel,
+            function(feature, layer) {
+              return feature;
+            });
+        if (feature) {
+          // go to info.html
+          document.location.href = 'info.html?id=' + feature.get('id')
+        }
+      });
+
+      // change mouse cursor when over marker
+      map.on('pointermove', function(e) {
+        var pixel = map.getEventPixel(e.originalEvent);
+        var hit = map.hasFeatureAtPixel(pixel);
+        this.getTargetElement().style.cursor = hit ? 'pointer' : '';
       });
     });
     
