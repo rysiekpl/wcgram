@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>#WCGRAM</title>
+		<meta charset="utf-8" />
+    	<link href="css\bootstrap.min.css" rel="stylesheet" media="screen">
+		<script src="js\jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" href="js\bootstrap.min.js"></script>
+		<script type="text/javascript">
+			var json = "";
+			$.getJSON("toilets.json", function( data ) {
+		  		json = data;
+			});
+			
+			var soap = true;
+			var toilet = true;
+
+			function sortDescending(){
+				objekti = json;
+				for(var i=0; i<objekti.length; i++){
+					for(var j=i+1; j<objekti.length; j++){
+						if(objekti[i].rating < objekti[j].rating){
+							var temp = objekti[i];
+							objekti[i] = objekti[j];
+							objekti[j] = temp;
+						}
+					}
+				}
+				var newObjects = [];
+				if(soap == true && toilet == true){
+					for(var i=0; i<objekti.length; i++){
+						if(objekti[i].soap == 1 && objekti[i].toilet == 1){
+							newObjects.push(objekti[i]);
+						}
+					}
+					objekti = newObjects;
+				}else if(soap == true){
+					for(var i=0; i<objekti.length; i++){
+						if(objekti[i].soap == 1){
+							newObjects.push(objekti[i]);
+						}
+					}
+					objekti = newObjects;
+				}
+				else if(toilet == true){
+					for(var i=0; i<objekti.length; i++){
+						if(objekti[i].toilet == 1){
+							newObjects.push(objekti[i]);
+						}
+					}
+					objekti = newObjects;
+				}
+			}
+
+			function reDraw(){
+				var design = "";
+				for(var index in objekti){
+					design += '<div class="panel panel-default"><div class="panel-heading">'+
+							objekti[index].name + 
+							'<span class="pull-right"><span id="toiletTick"'+
+							' class="glyphicon glyphicon-star" ></span>&nbsp;<span></span>'
+							+ objekti[index].rating + '</span>'
+						+'</div><div class="panel-body">'+
+							objekti[index].name
+						+'</div></div>'
+				}
+				$('#content').html(design);
+			}
+
+			function load(){
+				sortDescending();
+				reDraw();
+			}
+
+			function soapChange(){
+				soap = !soap;
+				$("#soap").toggleClass("active");
+				$("#soapTick").toggleClass("glyphicon-ok");
+				$("#soapTick").toggleClass("glyphicon-remove");
+				load();
+			}
+
+			function toiletChange(){
+				toilet = !toilet;
+				$("#toilet").toggleClass("active");
+				$("#toiletTick").toggleClass("glyphicon-ok");
+				$("#toiletTick").toggleClass("glyphicon-remove");
+				load();
+			}
+		</script>
+	</head>
+	<body onload="load()">
+		<div id="wrapper" style="margin-top:20px;">
+			<div class="col-md-1">
+			</div>
+			<div id="navigation" class="col-md-3">
+				<ul class="nav nav-pills nav-stacked">
+			  		<li id="rating" role="presentation" class="active">
+			  			<a href="#">
+			  			<span id="ratingTick" class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;
+			  			Rating</a>
+			  		</li>
+			  		<li id="soap" role="presentation" onclick="soapChange()" class="active">
+			  			<a href="#">
+			  			<span id="soapTick" class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;
+			  			Soap</a>
+			  		</li>
+			  		<li id="toilet" role="presentation" onclick="toiletChange()" class="active">
+			  			<a href="#">
+			  			<span id="toiletTick" class="glyphicon glyphicon-ok" ></span>&nbsp;&nbsp;
+			  			Toilet paper</a>
+			  		</li>
+				</ul>
+			</div>
+			<div id="content" class="col-md-7"></div>
+		</div>
+	</body>
+</html>
