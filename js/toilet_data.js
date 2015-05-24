@@ -7,7 +7,7 @@ var toiletData = [
         "soap": 1,
         "toilet": 0,
         "link": "http://a1on.mk/wordpress/wp-content/uploads/2012/09/4.jpg",
-        "address":"adresa"
+        "address":"Коста Абраш, 1000 Скопје"
     },
     {
         "name": "Интернешнл Балкан Јуниверзити",
@@ -17,7 +17,7 @@ var toiletData = [
         "soap": 0,
         "toilet": 1,
         "link": "http://www.ilinden.gov.mk/sites/default/files/images/DSC_8237.JPG",
-        "address":"adresa"
+        "address":"Самоилова 10, 1000 Скопје"
     },
     {
         "name": "Универзитет „Св. Кирил и Методиј“",
@@ -27,7 +27,7 @@ var toiletData = [
         "soap": 1,
         "toilet": 0,
         "link": "http://www.build.mk/docs/blog/Skopje/uciliste%20Reonski%20Centar-Aerodrom.jpg",
-        "address":"adresa"
+        "address":"Бул.„Гоце Делчев“ бр. 9, 1000 Скопје"
     },
     {
         "name": "Стадион Чаир",
@@ -37,7 +37,7 @@ var toiletData = [
         "soap": 0,
         "toilet": 1,
         "link": "http://centarnews.net/mk/images/ou_d_miladinov.JPG",
-        "address":"adresa"
+        "address":"Кемал Сејфула, 1000 Скопје"
     },
     {
         "name": "ОУ Васил Главинов",
@@ -47,7 +47,7 @@ var toiletData = [
         "soap": 0,
         "toilet": 1,
         "link": "http://nmedia.time.mk/images/7ece78b2-3a10-4834-b01e-a0760f79f10d.jpeg",
-        "address":"adresa"
+        "address":"Џон кенеди, 1000 Скопје"
     },
     {
         "name": "ОУ Рајко Жинзифов",
@@ -57,7 +57,7 @@ var toiletData = [
         "soap": 1,
         "toilet": 1,
         "link": "http://www.valaska.sk/portals_pictures/i_000649/i_649465.jpg",
-        "address":"adresa"
+        "address":"Топанско Поле, 1000 Скопје"
     },
     {
         "name": "СЕУ Арсение Јовков",
@@ -67,7 +67,7 @@ var toiletData = [
         "soap": 1,
         "toilet": 0,
         "link": "http://a1on.mk/wordpress/wp-content/uploads/2015/01/Screenshot_713-606x320.jpg",
-        "address":"adresa"
+        "address":"Костурска, 1000 Скопје"
     },
     {
         "name": "Гимназија Зеф Љуш Марку",
@@ -77,7 +77,7 @@ var toiletData = [
         "soap": 0,
         "toilet": 0,
         "link": "http://iris.mk/images/stories/!2010/02/02/medicina.jpg",
-        "address":"adresa"
+        "address":"Лазо Трповски бб, 1000 Скопје"
     },
     {
         "name": "Детска градинка Бутел 1",
@@ -87,7 +87,7 @@ var toiletData = [
         "soap": 0,
         "toilet": 0,
         "link": "http://faktor.mk/wp-content/themes/sahifa/timthumb.php?src=/wp-content/uploads/2015/04/nova-sliki.jpg&h=330&w=660&a=c",
-        "address":"adresa"
+        "address":"Натанаил Кучевишки, 1000 Скопје"
     },
     {
         "name": "Рамстор Мал - Топанско",
@@ -97,7 +97,7 @@ var toiletData = [
         "soap": 1,
         "toilet": 1,
         "link": "http://tvorbis.com.mk/wp-content/uploads/2015/04/ANA-BOJKOT-MEDICINSKOOOO.jpg",
-        "address":"adresa"
+        "address":"Топанско Поле, 1000 Скопје"
     },
     {
         "name": "Веро",
@@ -107,7 +107,7 @@ var toiletData = [
         "soap": 1,
         "toilet": 0,
         "link": "http://lemic.biz/cms_upload/pages/files/472_30_vero_01.jpg",
-        "address":"adresa"
+        "address":"Џон кенеди, 1000 Скопје"
     },
     {
         "name": "Скопски Саем",
@@ -117,7 +117,7 @@ var toiletData = [
         "soap": 0,
         "toilet": 1,
         "link": "http://kongresguides.files.wordpress.com/2011/11/fij_5635.jpg",
-        "address":"adresa"
+        "address":"ул. 2, Скопје 1130"
     },
     {
         "name": "Земјоделски Факултет",
@@ -127,7 +127,7 @@ var toiletData = [
         "soap": 0,
         "toilet": 0,
         "link": "http://www.skopjeinfo.mk/admin/upload/images/Avgust%202013/Univerzitet_Sv._Kiril_i_Metodij.jpg",
-        "address":"adresa"
+        "address":"16-та Македонска Бригада, 1000 Скопје"
     },
     {
         "name": "О.У. Стив Наумов",
@@ -137,7 +137,7 @@ var toiletData = [
         "soap": 1,
         "toilet": 0,
         "link": "http://denesen.mk/web/wp-content/uploads/2014/04/univerzitet-kiril-i-metodij-7.jpg",
-        "address":"adresa"
+        "address":"Јани Лукровски, 1000 Скопје"
     },
     {
         "name": "Јахја Кемал Колеџ",
@@ -147,7 +147,7 @@ var toiletData = [
         "soap": 1,
         "toilet": 1,
         "link": "http://www.fakulteti.mk/images/news/2014/10/20141009-germanija-celosno-ja-ukina-shkolarinata-na-site-univerziteti-m.jpg",
-        "address":"adresa"
+        "address":"бул. Александар Велики 22, 1000 Скопје"
     },
     {
         "name": "АСУЦ Боро Петрушевски",
@@ -157,7 +157,7 @@ var toiletData = [
         "soap": 0,
         "toilet": 0,
         "link": "http://blog.zhaw.ch/icclab/files/2013/10/uist-winemo-image.jpg",
-        "address":"adresa"
+        "address":"бул. Александар Велики 28, 1000 Скопје"
     },
     {
         "name": "ЛукОил",
@@ -167,7 +167,7 @@ var toiletData = [
         "soap": 1,
         "toilet": 1,
         "link": "http://www.vaseljenska.com/wp-content/uploads/2014/12/lukoil.jpg",
-        "address":"adresa"
+        "address":"бул. Александар Македонски, 1000 Скопје"
     },
     {
         "name": "Партениј Зографски",
@@ -177,7 +177,7 @@ var toiletData = [
         "soap": 1,
         "toilet": 0,
         "link": "http://a1on.mk/wordpress/wp-content/uploads/2014/08/ucilisteStrumica0s-2.jpg",
-        "address":"adresa"
+        "address":"Благоја Стефковски, 1000 Скопје"
     },
     {
         "name": "Универзитет ФОН",
@@ -187,7 +187,7 @@ var toiletData = [
         "soap": 0,
         "toilet": 1,
         "link": "http://www.ohrid.gov.mk/pictures/Prv_skolski_cas_2013_4857.jpg",
-        "address":"adresa"
+        "address":"Индустриска, 1000 Скопје"
     },
     {
         "name": "Капитол Мол & Резиденс",
@@ -196,8 +196,8 @@ var toiletData = [
         "rating": 5.0,
         "soap": 1,
         "toilet": 1,
-        "link": "link",
-        "address":"adresa"
+        "link": "http://lider.mk/wp-content/uploads/2014/05/pirot-skolo.jpg",
+        "address":"бул. Јане Сандански 71А, 1000 Скопје"
     },
     {
         "name": "ТЦ Бисер",
@@ -206,8 +206,8 @@ var toiletData = [
         "rating": 3.2,
         "soap": 0,
         "toilet": 1,
-        "link": "link",
-        "address":"adresa"
+        "link": "http://www.kanal77.com.mk/mk/images/2014/Noemvri/06/vranista_skolo.jpg",
+        "address":"бул. Јане Сандански, 1000 Скопје"
     },
     {
         "name": "СУГС \"МаријаКириСклодовска\"",
@@ -216,8 +216,8 @@ var toiletData = [
         "rating": 2.1,
         "soap": 0,
         "toilet": 0,
-        "link": "link",
-        "address":"adresa"
+        "link": "http://www.webohrid.com/wp-content/uploads/2013/11/SvKlimentSkolo-620x360.jpg",
+        "address":"Аеродром, 1000 Скопје"
     },
     {
         "name": "Рамстор Мал - Ново Лисиче",
@@ -226,8 +226,8 @@ var toiletData = [
         "rating": 3.5,
         "soap": 0,
         "toilet": 1,
-        "link": "link",
-        "address":"adresa"
+        "link": "http://netpress.com.mk/wp-content/uploads/2015/03/montazzno_ucilishte.jpg",
+        "address":"Видео Смилевски Бато, 1000 Скопје"
     },
     {
         "name": "ОУ Димитар Македонски",
@@ -236,8 +236,8 @@ var toiletData = [
         "rating": 1.5,
         "soap": 0,
         "toilet": 0,
-        "link": "link",
-        "address":"adresa"
+        "link": "http://denesen.mk/web/wp-content/uploads/2012/11/braka-ribar.jpg",
+        "address":"Аеродром, 1000 Скопје"
     },
     {
         "name": "ОУ. Гоце Делчев",
@@ -246,8 +246,8 @@ var toiletData = [
         "rating": 3.0,
         "soap": 1,
         "toilet": 1,
-        "link": "link",
-        "address":"adresa"
+        "link": "http://www.ilinden.gov.mk/sites/default/files/images/uciliste_Risto_krle.JPG",
+        "address":"Аеродром, 1000 Скопје"
     },
     {
         "name": "ОУ Блаже Конески",
@@ -256,8 +256,8 @@ var toiletData = [
         "rating": 2.0,
         "soap": 1,
         "toilet": 0,
-        "link": "link",
-        "address":"adresa"
+        "link": "http://doznavame.mk/wp-content/uploads/2014/11/grigor-620x264.jpg",
+        "address":"Венјамин Мачуковски, 1000 Скопје"
     },
     {
         "name": "ООУ 11 Октомври",
@@ -266,7 +266,7 @@ var toiletData = [
         "rating": 3.0,
         "soap": 1,
         "toilet": 1,
-        "link": "link",
-        "address":"adresa"
-    },
-    ]
+        "link": "http://meta.mk/wp-content/uploads/2014/11/uciliste-Ohrid.jpg",
+        "address":"Бул. Крушевска, 1000 Скопје"
+    }
+]
