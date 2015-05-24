@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>WC Gram</title>
   <script src="js/jquery-2.0.3.min.js"></script>
-  <script src="js/ol.js"></script>
   <script src="js/toilet_data.js"></script>
+  <script src="js/ol.js"></script>
   <link rel="stylesheet" href="css/ol.css" type="text/css">
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <script>
@@ -24,12 +24,14 @@
           scale: 0.3,
           opacity: 0.75,
           src: 'img/toilet-by-victor-fedyuk-the-noun-project-cc-by-3.0.svg'
-        }))
+        })),
+        zIndex:100
       });
     }
     
-    function colorFromRating(rating) {
-      return [512 / (rating + 0.1), 512 * (rating / 5), 0, 0.5]
+    function colorFromRating(rating, opacity) {
+      if (opacity == undefined) opacity = 0.5
+      return [512 / (rating + 0.1), 512 * (rating / 5), 0, opacity]
     }
     
     function backgroundStyle(feature) {
@@ -39,7 +41,8 @@
         geometry: new ol.geom.Circle(feature.getGeometry().getCoordinates(), 300),
         fill: new ol.style.Fill(({
           color: clr
-        }))
+        })),
+        zIndex:50
       });
     }
     
@@ -74,6 +77,7 @@
           }),
           offsetY: 30
         })),
+        zIndex:200
       });
     }
     
