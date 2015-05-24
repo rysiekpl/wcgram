@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>WC Gram</title>
   <script src="js/jquery-2.0.3.min.js"></script>
   <script src="js/ol.js"></script>
@@ -11,16 +12,11 @@
   
     var map = false;
     var vectorLayer = false
-    var iconFeatures = [];
+    var hoveredFeatures = []
+    var unHoveredFeatures = []
     
-    $(function() {
-      
-
-      var vectorSource = new ol.source.Vector({
-        features: []
-      });
-
-      var iconStyle = new ol.style.Style({
+    function iconStyle(feature) {
+      return new ol.style.Style({
         image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
           anchor: [0.5, 0.5],
           anchorXUnits: 'fraction',
@@ -30,11 +26,75 @@
           src: 'img/toilet-by-victor-fedyuk-the-noun-project-cc-by-3.0.svg'
         }))
       });
-
-      vectorLayer = new ol.layer.Vector({
-        source: vectorSource,
-        style: iconStyle
+    }
+    
+    function backgroundStyle(feature) {
+      var clr = [255 / (feature.get('rating') + 0.1), 255 * (feature.get('rating') / 5), 0, 0.5]
+      console.log('rating: ' + feature.get('rating') + ' :: clr: ' + clr)
+      return new ol.style.Style({
+        geometry: new ol.geom.Circle(feature.getGeometry().getCoordinates(), 300),
+        fill: new ol.style.Fill(({
+          color: clr
+        }))
       });
+    }
+    
+    function hoveredIconStyle(feature) {
+    
+      var featureText = feature.get('name')
+      if (featureText.length > 16) {
+        featureText = featureText.slice(0, 15) + '…'
+      }
+      featureText = featureText + ' (' + feature.get('rating') + ')'
+      
+      return new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+          anchor: [0.5, 0.5],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'fraction',
+          scale: 0.5,
+          opacity: 1.0,
+          src: 'img/toilet-by-victor-fedyuk-the-noun-project-cc-by-3.0.svg'
+        })),
+        text: new ol.style.Text( ({
+          font: "bold 12px Ubuntu",
+          text: featureText,
+          scale: 1.0,
+          fill: new ol.style.Fill({
+            color: '#000'
+          }),
+          stroke: new ol.style.Stroke({
+            color: [255 / (feature.get('rating') + 0.1), 255 * (feature.get('rating') / 5), 0, 0.5],
+            width: 2
+          }),
+          offsetY: 30
+        })),
+      });
+    }
+    
+    var vectorSource = new ol.source.Vector({
+      features: []
+    });
+
+
+    vectorLayer = new ol.layer.Vector({
+      source: vectorSource,
+      //style: iconStyle
+    });
+    
+    
+    function createPopup(feature) {
+      
+    }
+    
+    
+    function destroyPopup(feature) {
+      if (feature.popup) {
+        destroy(feature.popup)
+      }
+    }
+    
+    $(function() {
       
       //
       // Create map
@@ -58,7 +118,7 @@
         view: new ol.View({
           center: ol.proj.transform([21.43, 42.00], 'EPSG:4326', 'EPSG:3857'),
           zoom: 13,
-          maxZoom: 17
+          maxZoom: 19
         })
       });
       
@@ -66,7 +126,9 @@
       map.on('click', function(evt) {
         var feature = map.forEachFeatureAtPixel(evt.pixel,
             function(feature, layer) {
-              return feature;
+              if (feature.get('type') != 'background') {
+                return feature;
+              }
             });
         if (feature) {
           // go to info.html
@@ -78,14 +140,41 @@
       map.on('pointermove', function(e) {
         var pixel = map.getEventPixel(e.originalEvent);
         var hit = map.hasFeatureAtPixel(pixel);
+        
+        // mouse cursor
         this.getTargetElement().style.cursor = hit ? 'pointer' : '';
+        
+        // unhovered features
+        unHoveredFeatures = hoveredFeatures.slice()
+        hoveredFeatures = []
+        
+        // get the hovered features
+        if (hit) {
+          map.forEachFeatureAtPixel(e.pixel,
+            function(feature, layer) {
+              if (feature.get('type') != 'background') {
+                hoveredFeatures.push(feature)       
+              }
+            });
+        }
+        
+        $.each(unHoveredFeatures, function(key, feature) {
+          // get feature back to the original size
+          feature.setStyle(iconStyle(feature))
+        })
+        $.each(hoveredFeatures, function(key, feature) {
+          // enlarge the feature
+          feature.setStyle(hoveredIconStyle(feature))
+        })
       });
+    
       
       /**
         * get the data
         */
       $.each(toiletData, function( key, val) {
-        vectorSource.addFeature(new ol.Feature({
+        // icon
+        var f = new ol.Feature({
           geometry: new ol.geom.Point(ol.proj.transform([val.lng, val.lat], 'EPSG:4326',     
           'EPSG:3857')),
           name: val.name,
@@ -95,7 +184,18 @@
           link: val.link,
           address: val.address,
           id: key
-        }));
+        })
+        f.setStyle(iconStyle(f))
+        vectorSource.addFeature(f);
+        // background
+        var f = new ol.Feature({
+          geometry: new ol.geom.Point(ol.proj.transform([val.lng, val.lat], 'EPSG:4326',     
+          'EPSG:3857')),
+          type: 'background',
+          rating: val.rating
+        })
+        f.setStyle(backgroundStyle(f))
+        vectorSource.addFeature(f);
       });
       
     });
