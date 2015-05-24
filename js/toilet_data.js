@@ -268,5 +268,85 @@ var toiletData = [
         "toilet": 1,
         "link": "http://meta.mk/wp-content/uploads/2014/11/uciliste-Ohrid.jpg",
         "address":"Бул. Крушевска, 1000 Скопје"
+    },
+    {
+        "name": "Песталоци",
+        "lat": 41.9974787,
+        "lng": 21.4207864,
+        "rating": 5,
+        "soap": 1,
+        "toilet": 1,
+        "link": "http://i.imgur.com/75U7e.jpg",
+        "address": "Апостол Гусларот бр.3, 1000 Скопје"
+    },
+    {
+        "name": "Орце Николов",
+        "lat": 42.0061372,
+        "lng": 21.41245,
+        "rating": 3,
+        "soap": 0,
+        "toilet": 1,
+        "link": "http://libertas.mk/wp-content/uploads/2015/04/orce-nikolov.jpg",
+        "address": "Булевар „Илинден“ 101, 1000 Скопје"
+    },
+    {
+        "name": "ФИНКИ",
+        "lat": 42.004113,
+        "lng": 21.409549,
+        "rating": 2,
+        "soap": 1,
+        "toilet": 0,
+        "link": "http://denesen.mk/web/wp-content/uploads/2014/04/1ukim.jpg",
+        "address": "ул.„Руѓер Бошковиќ“ 16,Поштенски Фах 393,1000 Скопје"
+    },
+    {
+        "name": "Машинки факултет",
+        "lat": 42.0042392,
+        "lng": 21.4089954,
+        "rating": 2,
+        "soap": 1,
+        "toilet": 0,
+        "link": "http://www.dw.de/image/0,,2516704_4,00.jpg",
+        "address": "Карпош II бб,1000 Скопје"
+    },
+    {
+        "name": "Факултет за електротехника и информациски технологии",
+        "lat": 42.0049813,
+        "lng": 21.4083115,
+        "rating": 4,
+        "soap": 1,
+        "toilet": 1,
+        "link": "http://a1on.mk/wordpress/wp-content/uploads/2013/04/ukim.jpg",
+        "address": "ул.„Руѓер Бошковиќ“ бр.18,П.фах 574, 1000 Скопје"
+    },
+    {
+        "name": "Библиотека Браќа Миладиновци",
+        "lat": 42.002713,
+        "lng": 21.411989,
+        "rating": 5,
+        "soap": 0,
+        "toilet": 1,
+        "link": "http://vecer.mk/files/article/2015/05/06/povtorno-otvoreni-chitalnite-na-bibliotekata-brakja-miladinovci-261453.jpg",
+        "address": "Бул.Партизанскиодреди бр.22"
+    },
+    {
+        "name": "Болница 8ми Септември",
+        "lat": 42.003999,
+        "lng": 21.401697,
+        "rating": 4.5,
+        "soap": 1,
+        "toilet": 0,
+        "link": "http://naraport.mk/wp-content/uploads/2015/01/gradska-8-mi-septemvri.jpg",
+        "address": "ул „Париска“ бб, 1000 Скопје"
+    },
+    {
+        "name": "Рамстор Трговски Центар",
+        "lat": 41.9917217,
+        "lng": 21.4273364,
+        "rating": 3.2,
+        "soap": 0,
+        "toilet": 1,
+        "link": "http://static.panoramio.com/photos/large/24455931.jpg",
+        "address": "Ул.Св.Кирил и Методиј,број 13, 1000 Скопје"
     }
 ]
