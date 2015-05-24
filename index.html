@@ -4,6 +4,7 @@
   <title>WC Gram</title>
   <script src="js/jquery-2.0.3.min.js"></script>
   <script src="js/ol.js"></script>
+  <script src="js/toilet_data.js"></script>
   <link rel="stylesheet" href="css/ol.css" type="text/css">
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <script>
@@ -14,23 +15,9 @@
     
     $(function() {
       
-      
-      var iconFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.transform([21.4359624, 42.0108257], 'EPSG:4326',     
-        'EPSG:3857')),
-        name: 'O.У. Цветан Димов',
-        rating: 2.0,
-        soap: 1,
-        toilet: 0,
-        link: "http://a1on.mk/wordpress/wp-content/uploads/2012/09/4.jpg",
-        address:"adresa",
-        id:1
-      });
-
-      iconFeatures.push(iconFeature);
 
       var vectorSource = new ol.source.Vector({
-        features: iconFeatures //add an array of features
+        features: []
       });
 
       var iconStyle = new ol.style.Style({
@@ -43,7 +30,6 @@
           src: 'img/toilet-by-victor-fedyuk-the-noun-project-cc-by-3.0.svg'
         }))
       });
-
 
       vectorLayer = new ol.layer.Vector({
         source: vectorSource,
@@ -94,6 +80,24 @@
         var hit = map.hasFeatureAtPixel(pixel);
         this.getTargetElement().style.cursor = hit ? 'pointer' : '';
       });
+      
+      /**
+        * get the data
+        */
+      $.each(toiletData, function( key, val) {
+        vectorSource.addFeature(new ol.Feature({
+          geometry: new ol.geom.Point(ol.proj.transform([val.lng, val.lat], 'EPSG:4326',     
+          'EPSG:3857')),
+          name: val.name,
+          rating: val.rating,
+          soap: val.soap,
+          toilet: val.toilet,
+          link: val.link,
+          address: val.address,
+          id: key
+        }));
+      });
+      
     });
     
   </script>
